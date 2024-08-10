@@ -1,15 +1,15 @@
 package repository
 
 import (
-	"context"
-
+	queries "github.com/mohammadrahimi/Inventory_Service_Go/src/Domain.Contract/Queries/Stock/ResultStock"
 	aggregate "github.com/mohammadrahimi/Inventory_Service_Go/src/Domain/Stock"
 )
 
 type IStockRepository interface {
-	Create(ctx context.Context, stock *aggregate.Stock) ( status string, err error)
-	FindById(ctx context.Context, id string) (*aggregate.Stock, error)
-	FindAll(ctx context.Context) ([]*aggregate.Stock, error)
-	Update(ctx context.Context, stock *aggregate.Stock) ( status string, err error)
-	Delete(ctx context.Context, id string) ( status string, err error)
+	Create(stock *aggregate.Stock) ( status string, err error)
+	FindByProductId(id string) (queries.ResultStockQuery, error)
+	FindById(id string) (queries.ResultStockQuery, error)
+	FindAll() ([]queries.ResultStockQuery, error)
+	Update(stock *aggregate.Stock) ( status string, err error)
+	Delete(id string) ( status string, err error)
 }

@@ -19,3 +19,10 @@ func New(amount float64, currency string) (Money, error) {
 	}, nil
 
 }
+
+func(m *Money) Amount() float64{
+	return m.amount
+}
+func(m *Money) Currency() string{
+	return m.currency
+}

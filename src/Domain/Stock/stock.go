@@ -21,7 +21,7 @@ type Stock struct{
 
 
 
-func NewStock(createStockCommand commands.CreateStockCommand) (*Stock,error){
+func NewStock(createStockCommand *commands.CreateStockCommand) (*Stock,error){
 
      if(createStockCommand.Quantity <= 0){
         return &Stock{}, Errors.ErrorQuantity
